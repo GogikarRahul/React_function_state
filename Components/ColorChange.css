@@ -1,0 +1,44 @@
+/* ColorChange.css */
+
+.color-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: background-color 0.5s ease;
+}
+
+.color-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.color-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.color-button:hover {
+  transform: scale(1.1);
+}
+
+.color-button.red {
+  background-color: red;
+}
+
+.color-button.yellow {
+  background-color: gold;
+  color: black;
+}
+
+.color-button.green {
+  background-color: green;
+}

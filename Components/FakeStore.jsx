@@ -1,38 +1,32 @@
-import Data from "../src/Data"
-import {useState}from 'react'
-const Fakestore=()=>{
-  const[data,setFakestoredata]=useState([])
-const handleClick=(cat)=>{
-  const Final=Data.filter(
-    (val)=>{
-      return val.category===cat
+import { useState } from 'react';
+import Data from '../src/Data';
+import './Fakestore.css';
 
-    }
-)
-if(Final.length>0){
-setFakestoredata(Final)
-}
-else{
-  <h1></h1>
-}
-}
-  return(
-    <div>
-     <button onClick={()=>handleClick('electronics')}>electronics</button>
-     <button onClick={()=>handleClick('jewelery')}>jewellery</button>
+const Fakestore = () => {
+  const [data, setFakestoredata] = useState([]);
 
-     <div >
-        {data.map((val)=>{
-          return(
-           <div>
-             <img  src={val.image} width={100}/>
-           <h1>{val.title}</h1> 
-           </div>
-          )
-        })}
-     </div>
+  const handleClick = (cat) => {
+    const Final = Data.filter((val) => val.category === cat);
+    setFakestoredata(Final);
+  };
+
+  return (
+    <div className="fakestore-container">
+      <div className="category-buttons">
+        <button onClick={() => handleClick('electronics')}>Electronics</button>
+        <button onClick={() => handleClick('jewelery')}>Jewellery</button>
+      </div>
+
+      <div className="products-grid">
+        {data.map((val) => (
+          <div key={val.id} className="product-card">
+            <img src={val.image} alt={val.title} />
+            <h1>{val.title}</h1>
+          </div>
+        ))}
+      </div>
     </div>
-   
-  )
-}
-export default Fakestore
+  );
+};
+
+export default Fakestore;

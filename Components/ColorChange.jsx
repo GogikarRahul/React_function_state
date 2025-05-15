@@ -1,16 +1,22 @@
-import { useState } from "react"
-const ColorChange=()=>{
-  const[color,setColor]=useState('')
-  const handleClick=(clr)=>{
-    setColor(clr)
+import { useState } from "react";
+import './ColorChange.css';
 
-  }
-  return(
-    <div style={{backgroundColor:color}}>
-     <button onClick={()=>handleClick('red')}>red</button>
-     <button onClick={()=>handleClick('yellow')}>yellow</button>
-     <button onClick={()=>handleClick('green')}>green</button>
+const ColorChange = () => {
+  const [color, setColor] = useState('');
+
+  const handleClick = (clr) => {
+    setColor(clr);
+  };
+
+  return (
+    <div className="color-container" style={{ backgroundColor: color }}>
+      <div className="color-buttons">
+        <button className="color-button red" onClick={() => handleClick('red')}>Red</button>
+        <button className="color-button yellow" onClick={() => handleClick('yellow')}>Yellow</button>
+        <button className="color-button green" onClick={() => handleClick('green')}>Green</button>
+      </div>
     </div>
-  )
-}
-export default ColorChange
+  );
+};
+
+export default ColorChange;
